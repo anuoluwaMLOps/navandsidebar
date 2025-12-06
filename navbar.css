@@ -1,0 +1,209 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(197, 180, 185);
+    font-family: Arial, Helvetica, sans-serif;
+    height: 2000px;
+    color: rgb(17, 16, 16);
+}
+.navbar{
+    width: 100%;
+    top: 0;
+    background-color: rgb(153, 108, 114);
+    backdrop-filter: blur(20px);
+    border-bottom:1px solid rgb(90, 70, 72) ;
+    z-index: 2000px;
+    transition: 0.3s ease;
+}
+.nav-container{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 10px 30px;
+    align-items: center;
+}
+.logo{
+    font-size: 1.6rem;
+    font-weight: 200;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 0;
+}
+.logo a{
+    text-decoration: none;
+    justify-content: center;
+}
+.logo img{
+    height: 50px;
+    width: auto;
+    border-radius: 40px;
+}
+.logo h1 {
+    color: rgb(90, 58, 58);
+    font-size: 24px;
+    font-weight: 600;
+    margin-left: 10px;
+}
+.nav-links{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    margin-left: 250px;
+    margin-right:0;
+}
+.nav-links li{  
+    position: relative;
+    padding: 10px 35px;
+    white-space: nowrap;
+}
+.nav-links a{
+    color: rgb(180, 177, 174);
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    padding: 10px 0;
+    font-weight: 600px;
+    border-radius: 6px;
+    font-size: 1rem;
+    display: block;
+}
+.nav-links a:hover{
+    color: rgb(78, 38, 42);
+    background-color: rgba(153, 108, 114, 0.815);
+    transition: 0.3s ease-in-out;
+}
+.dropdown-menu{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(153, 108, 114, 0.815);
+    border-radius: 8px;
+    box-shadow:  rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    padding: 10px 0;
+    margin: 0;
+    display: none;
+    flex-direction: column;
+    opacity: 2;
+    transform: translateY(10px);  
+    pointer-events: none;          
+    transition: all 0.25s ease;
+}
+.dropdown:hover .dropdown-menu{
+    display: block;
+    opacity: 1;
+    transform: translateY(0px);   
+    pointer-events: auto;
+}
+
+
+.sidebar{
+    position: fixed;
+    top: 90px;
+    left: 0;
+    width: 200px;
+    height: 100vh;
+    backdrop-filter: blur(15px);
+    background-color:  rgb(197, 180, 185);
+}
+.sidebar.open{
+    left: 0;
+}
+.sidebar-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-left: -85px;    
+}
+.close-sidebar{
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+.sidebar-links{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.sidebar-links li a{
+    color: rgb(100, 12, 12);
+    text-decoration: none;
+    transition: 0.3s;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    padding: 5px 15px;
+    font-weight: 600px;
+    border-radius: 6px;
+    font-size: 1rem;
+    display: block;
+}
+.sidebar-links li a:hover{
+    color: rgb(78, 38, 42);
+    background-color: rgba(153, 108, 114, 0.815);
+    transition: 0.3s ease-in-out;
+}
+.sidebar-submenu{
+    list-style: none;
+    display: none;
+    flex-direction: column;
+    margin-left: 25px;
+    gap: 15px;
+}
+
+.sidebar-dropdown:hover .sidebar-submenu{
+    display: block;
+    opacity: 1;
+    transform: translateY(0px);   
+    pointer-events: auto;
+}
+.sidebar-toggle{
+    font-size: 1.6rem;
+    cursor: pointer;
+    padding-right: 3px;
+    display: none;
+    color: aliceblue;
+}
+
+@media (max-width: 768px) {
+    .hamburger{
+        display: flex;
+    }
+    .nav-links{
+        position: absolute;
+        top: 20px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        gap: 15px;
+        background:rgb(153, 108, 114);
+        backdrop-filter: blur(20px);
+        padding: 20px;
+        display: none;
+        text-align: center;
+    }
+    .nav-links{
+        width: 100%;
+    }
+    .dropdown-menu{
+        position: static;
+        display: none;
+        background: transparent;
+        padding: 0;
+
+    }
+    .dropdown.open .dropdown-menu{
+        display: flex;
+    }
+    .dropdown-menu li a{
+        padding: 10px;
+    }
+    .navbar.scrolled{
+        background-color: rgb(153, 108, 114);
+    }
+}
